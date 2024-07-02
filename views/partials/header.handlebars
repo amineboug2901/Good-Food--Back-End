@@ -1,0 +1,39 @@
+<header>
+  <h1 class="p-3 mb-2 text-white">{{h1}} </h1>
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff9a3c;">
+
+    <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/"><img class="logo" src="/img/logo.jpg" alt="Restaurant GoodFood"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Menu</a>
+        </li>
+        {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/panier">Panier</a>
+        </li>
+        {{/if}}
+        {{#if isAdmin}}
+        <li class="nav-item">
+          <a class="nav-link" href="/commandes">Historique commandes</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+    {{#unless user}}
+    <form class="form-inline my-2 my-lg-0">
+      <a href="/login" class="btn btn-outline-primary my-2 mx-2 my-sm-0" type="submit">Se connecter</a>
+      <a href="/register" class="btn btn-outline-success my-2 mx-2 my-sm-0" type="submit">S'inscrire</a>
+    </form>
+    {{/unless}}
+    {{#if user}}
+    <form class="form-inline my-2 my-lg-0" method="post" action="/api/logout">
+      <input class="btn btn-outline-primary my-2 mx-2 my-sm-0" type="submit" value="Deconnexion" />
+    </form>
+    {{/if}}
+
+  </nav>
+</header>

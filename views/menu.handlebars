@@ -1,0 +1,36 @@
+<h2>Menu de Good Food</h2>
+
+<table class="table" class="position-relative" style="right: 100px">
+  <thead>
+    <tr>
+      <th colspan="7" style="position = center">Choisir les repas a ajouter</th>
+    </tr>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Image</th>
+      <th scope="col">Prix</th>
+      {{#if user}}
+      <th scope="col">Actions</th>
+      {{/if}}
+    </tr>
+  </thead>
+  <tbody>
+    <!--On affiche les produits-->
+    {{#each produits}}
+    <tr>
+      <th scope="row">{{this.nom}}</th>
+      <td><img src={{this.chemin_image}} /></td>
+      <td>{{this.prix}}</td>
+      {{#if ../user}}
+      <td>
+        <form novalidate class="input-group quantity-input-group">
+          <input type="number" min="1" class="form-control" placeholder="1" value="1" />
+          <input type="submit" class="liste-boutons btn btn-outline-secondary btn-sm" id="{{this.id_produit}}"
+            value="🛒" />
+        </form>
+      </td>
+      {{/if}}
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

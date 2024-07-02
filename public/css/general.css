@@ -1,0 +1,85 @@
+main ul {
+  list-style-type: none;
+}
+
+main li {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+main input[type="checkbox"]:checked + .texte {
+  text-decoration: line-through;
+}
+
+main form {
+  display: flex;
+}
+
+label {
+  display: inline-block;
+  align-items: center;
+}
+
+span::after {
+  padding-left: 5px;
+}
+
+input:invalid + span::after {
+  content: "✖";
+}
+
+input:valid + span::after {
+  content: "✓";
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+img.logo {
+  width: auto;
+  height: 30px;
+}
+
+.rotateimg45 {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.error {
+  display: none;
+  color: #a00;
+  padding: 0.5rem;
+}
+
+thead {
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+tr {
+  text-align: center;
+}
+.error-message {
+  color: red;
+  font-size: 0.6rem;
+  display: none;
+}
+
+.quantity-input-group > input[type="number"] {
+  width: 65px;
+}
+
+form.login, form.register {
+  display: flex;
+  flex-direction: column;
+}

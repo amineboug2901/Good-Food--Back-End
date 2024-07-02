@@ -1,0 +1,70 @@
+<h2>Panier</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="7" style="position = center">Listes des achats |
+        <input
+          type="button"
+          name="delete cart"
+          value="🗑️"
+          class="delete-cart btn btn-outline-secondary btn-sm "
+        /></th>
+    </tr>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Quantité</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <!--On affiche les produits du panier-->
+    {{#each produits}}
+      <tr>
+        <th scope="row"><img
+            src="{{this.chemin_image}}"
+            alt="{{this.nom}}"
+          /></th>
+        <td>{{this.nom}}</td>
+        <td>{{this.quantite}}</td>
+        <td>{{this.prix}}</td>
+
+        <td class="d-flex flex-row">
+          
+          <form class="input-group quantity-input-group">
+            <input type="number" min="0" class="form-control" placeholder="0" value="0">
+            <input
+            type="submit"
+            name="update quantity"
+            id="{{this.id_produit}}-{{this.quantite}}"
+            value="🗑️"
+            class="delete-one btn btn-outline-secondary btn-sm"
+          />
+          </form>
+          <input
+            type="button"
+            name="delete-all"
+            id="{{this.id_produit}}"
+            value="🗑️ tous"
+            class="delete-all btn btn-outline-secondary btn-sm ml-2"
+          />
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="7" style="position = center">Total: {{total}}$</th>
+    </tr>
+    <tr>
+      <th colspan="7" style="position = center"><button
+        type="button"
+        name="commander"
+        id="commander"
+        class="submit-cart btn btn-outline-secondary btn-sm "
+      >Commander</button></th>
+    </tr>
+</table>

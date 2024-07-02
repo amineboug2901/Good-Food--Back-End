@@ -1,0 +1,83 @@
+<h2>Les commandes</h2>
+
+<table class="table" class="position-relative">
+  <thead>
+    <tr>
+      <th colspan="7" style="position = center">La liste des commandes</th>
+    </tr>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Date</th>
+      <th scope="col">Etat</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--On affiche les commandes-->
+      <tr style="display: none;" id="form-copy" >
+        <th class="id_commande" scope="row"></th>
+        <td class="date"></td>
+        <td class="etat"></td>
+        <th>
+          <form class="form-etat" novalidate>
+            <div class="d-flex flex-column align-items-start">
+
+              <select
+                class="form-select form-select-sm"
+                required
+              >
+                <option selected hidden value="">Changer l'etat du commande</option>
+                <option value="2">En Cuisine</option>
+                <option value="3">En livraison</option>
+                <option value="4">Terminée</option>
+              </select>
+              <div class="error-message error-etat">Champ obligatoire</div>
+
+            </div>
+            <input
+              type="submit"
+              class="btn btn-outline-secondary btn-sm btn-change-state"
+              name="submit"
+              id=""
+              value="Appliquer"
+            />
+          </form>
+
+        </th>
+      </tr>
+    {{#each commandes}}
+      <tr id={{this.id_commande}}>
+        <th scope="row">{{this.id_commande}}</th>
+        <td>{{this.date}}</td>
+        <td class="etat">{{this.nom}}</td>
+        <th>
+          <form class="form-etat" novalidate>
+            <div class="d-flex flex-column align-items-start">
+
+              <select
+                class="form-select form-select-sm"
+                required
+              >
+                <option selected hidden value="">Changer l'etat du commande</option>
+                <option value="2">En Cuisine</option>
+                <option value="3">En livraison</option>
+                <option value="4">Terminée</option>
+              </select>
+              <div class="error-message error-etat">Champ obligatoire</div>
+
+            </div>
+            <input
+              type="submit"
+              class="btn btn-outline-secondary btn-sm btn-change-state"
+              name="submit"
+              id="{{this.id_commande}}"
+              value="Appliquer"
+            />
+          </form>
+
+        </th>
+      </tr>
+    {{/each}}
+
+  </tbody>
+</table>
